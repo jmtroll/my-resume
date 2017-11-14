@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+
+{% extends "home-base.html"%}
+{% block title %}Home Page{% endblock %}
+
+{% block head%}
+  {{ super() }}
+{% endblock%}
+
+{% block page_content%}
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-address-card-o" aria-hidden="true"></i> About </h1>
+    <p>This wesbite is developed by <a id="developer" href="https://github.com/jmtroll" data-toggle="tooltip" data-placement="top" title="click here for the best code you've ever seen :)">Jamie Troll</a>. <i class="fa fa-hand-spock-o" aria-hidden="true"></i></p>
+  </div>
+{% endblock%}
+
+{% block scripts%}
+  {{super()}}
+  <script>
+  $(document).ready(function () {
+    $('#developer').tooltip()
+  });
+  </script>
+{% endblock%}

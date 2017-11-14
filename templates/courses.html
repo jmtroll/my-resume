@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+{% extends "home-base.html"%}
+{% block title %}All Courses{% endblock %}
+{% block head%}
+  {{ super() }}
+{% endblock%}
+{% block page_content%}
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"> <i class="fa fa-book" aria-hidden="true"></i> Here are my courses:</h1>
+
+    <!-- Link trigger modal -->
+     <ul>
+          {% for course in courses %}
+            <li>
+              <a data-toggle="modal" href="#myModal">{{course[1]}}</a>
+            </li>
+          {% endfor%}
+      </ul>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                {% for course in courses %}
+                  {% if course[0]=="MISY225" %}
+                    {{course[1]}}
+                  {% endif %}
+                {% endfor %}
+              </h5>
+            <a class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </a>
+
+          </div>
+          <div class="modal-body">
+            {% for course in courses %}
+              {% if course[0]=="MISY225" %}
+                {{course[2]}}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock%}
